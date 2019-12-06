@@ -1,0 +1,9 @@
+body{
+  background-color: yellow;
+}
+.trans{
+  height: 100px;
+  width: 100px;
+  transform: translate(100px); 
+  background-color: orange;
+}
