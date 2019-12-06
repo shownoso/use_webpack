@@ -1,0 +1,27 @@
+{
+  "name": "use_webpack",
+  "version": "1.0.0",
+  "description": "use webpack",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shownoso/use_webpack.git"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "shownoso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shownoso/use_webpack/issues"
+  },
+  "homepage": "https://github.com/shownoso/use_webpack#readme",
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}
