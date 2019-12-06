@@ -9,6 +9,11 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
+  devtool: 'cheap-module-eval-source-map',
+  devServer: {
+    port: 3300,
+    open: true,
+  },
   module: {
     rules: [
       {
