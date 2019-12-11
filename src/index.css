@@ -1,9 +1,29 @@
-body{
-  background-color: yellow;
+:root {
+  --bg-color: rgb(173, 225, 250);
+  --main-color: #000;
 }
-.trans{
-  height: 100px;
-  width: 100px;
-  transform: translate(100px); 
+
+body {
+  background-color: var(--bg-color);
+}
+
+.trans {
+  --length: 100px;
   background-color: orange;
+  height: var(--length);
+  width: var(--length);
+  transform: translate(var(--length)); 
 }
+
+a {
+  color: rgb(0 0 100% / 90%);
+
+  &:hover {
+    color: yellow;
+  }
+}
+
+::placeholder {
+  color: gray;
+}
+
