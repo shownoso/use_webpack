@@ -5,6 +5,7 @@ const sayHello = () => {
   console.log('hello world!');
 }
 
-sayHello();
+
 console.log(add(1,2));
+Promise.resolve().finally();
 
