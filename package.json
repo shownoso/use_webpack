@@ -1,6 +1,6 @@
 {
   "name": "use_webpack",
-  "sideEffects": false,
+  "sideEffects": ["*.css"],
   "version": "1.0.0",
   "description": "use webpack",
   "private": true,
