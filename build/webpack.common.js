@@ -2,21 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
-  mode: 'production',
-  // mode: 'development',
-  // optimization: {
-  //   usedExports: true,
-  // },
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
-  },
-  // devtool: 'cheap-module-eval-source-map',
-  devServer: {
-    port: 3300,
-    open: true,
+    path: path.resolve(__dirname, '../dist')
   },
   module: {
     rules: [
