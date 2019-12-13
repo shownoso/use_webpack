@@ -3,8 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
-  mode: 'development',
   // mode: 'production',
+  mode: 'development',
   optimization: {
     usedExports: true,
   },
@@ -29,10 +29,10 @@ module.exports = {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
-          'style-loader',
-          // {
-          //   loader: MiniCssExtractPlugin.loader, // 与style-loader冲突，适用于production，可以通过环境判断选择使用
-          // },
+          // 'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader, // 与style-loader冲突，适用于production，可以通过环境判断选择使用
+          },
           {
             loader: 'css-loader',
             options: {
@@ -50,10 +50,10 @@ module.exports = {
       title: 'webpack',
       template: './src/index.html'
     }),
-    // new MiniCssExtractPlugin({
-    //   filename: '[name].css',
-    //   chunkFilename: '[id].css',
-    // }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
 
   ],
 };
