@@ -38,6 +38,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "core-js": "^3.4.8"
+    "core-js": "^3.4.8",
+    "lodash": "^4.17.15"
   }
 }
