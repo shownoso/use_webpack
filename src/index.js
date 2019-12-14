@@ -1,3 +1,5 @@
+import './index.css';
+
 const dynamicImport = async () => {
   console.log('async importing');
   import(/* webpackChunkName: "lodash" */ 'lodash').then(({ default: _ }) => {
@@ -6,7 +8,7 @@ const dynamicImport = async () => {
 };
 
 document.addEventListener('click', () => {
-  dynamicImport();
+  // dynamicImport();
   import(/* webpackPrefetch: true */ './prefetch-module').then(({ default: fn }) => {
     fn();
   });

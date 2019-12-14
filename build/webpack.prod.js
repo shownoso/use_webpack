@@ -5,7 +5,7 @@ const prodConfig = {
   mode: 'production',
   // devtool: 'cheap-module-source-map',
   plugins: [
-    new BundleAnalyzerPlugin()
+    // new BundleAnalyzerPlugin()
   ]
 }
 module.exports = merge(commonConfig, prodConfig);
