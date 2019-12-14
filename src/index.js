@@ -1,14 +1,13 @@
-// import './index.css';
-// import { add } from './utils';
-import _ from 'lodash';
-console.log(
-  _.join(['index', 'module', 'loaded!'], ' ')
-);
-// add(1,2);
+const dynamicImport = async () => {
+  console.log('async importing');
+  import(/* webpackChunkName: "lodash" */ 'lodash').then(({ default: _ }) => {
+   console.log(_.join(['async', 'imported'], '**'))
+  }).catch(error => console.log('async import error'));
+};
 
-// const sayHello = () => {
-//   console.log('hello world!');
-// } 
-// sayHello();    
-// Promise.resolve().finally();
-// [1,2,3].includes(2);
+document.addEventListener('click', () => {
+  dynamicImport();
+  import(/* webpackPrefetch: true */ './prefetch-module').then(({ default: fn }) => {
+    fn();
+  });
+})
