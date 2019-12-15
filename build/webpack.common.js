@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const webpack = require('webpack');
 function recursiveIssuer(m) {
   if (m.issuer) {
     return recursiveIssuer(m.issuer);
@@ -24,19 +24,27 @@ module.exports = {
     path: path.resolve(__dirname, '../dist')
   },
   optimization: {
-    runtimeChunk: 'single',
+    // runtimeChunk: 'single',
     moduleIds: 'hashed',
     splitChunks: {
-      
+
       chunks: 'all',
       // cacheGroups: {
-        
-                             
+
+
       // }
     },
   },
   module: {
     rules: [
+      {
+        test: require.resolve('../src/test-shim-module.js'),
+        use: 'imports-loader?this=>window',
+      },
+      {
+        test: require.resolve('../src/test-shim-module.js'),
+        use: 'exports-loader?say=window.say',
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -72,6 +80,9 @@ module.exports = {
       filename: 'css/[name].[contenthash:6].css',
       chunkFilename: 'css/[name].[id].css',
     }),
-
+    new webpack.ProvidePlugin({
+      // _: 'lodash',
+      __join: ['lodash', 'join'],
+    }),
   ],
 };
