@@ -16,44 +16,23 @@ function recursiveIssuer(m) {
 module.exports = {
   entry: {
     index: './src/index.js',
-    pageA: './src/pageA.js',
+    // pageA: './src/pageA.js',
     // another: './src/another-module.js',
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].[contenthash:6].js',
     path: path.resolve(__dirname, '../dist')
   },
   optimization: {
+    runtimeChunk: 'single',
+    moduleIds: 'hashed',
     splitChunks: {
-      cacheGroups: {
-        chunks: 'all',
-        // styles: {
-        //   name: 'styles',
-        //   test: /\.css$/,
-        //   chunks: 'all',
-        //   enforce: true,
-        // },
-        // indexStyles: {
-        //   name: 'index',
-        //   test: (m, c, entry = 'index') =>
-        //     m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
-        //   chunks: 'all',
-        //   enforce: true,
-        // },
-        // pageAStyles: {
-        //   name: 'pageA',
-        //   test: (m, c, entry = 'pageA') =>
-        //     m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
-        //   chunks: 'all',
-        //   enforce: true,
-        // },
-        // vendors: {
-        //   chunks: 'all',
-        //   test: /[\\/]node_modules[\\/]/, 
-        //   priority: -10
-        // },
-        // default: false,
-      }
+      
+      chunks: 'all',
+      // cacheGroups: {
+        
+                             
+      // }
     },
   },
   module: {
@@ -90,7 +69,7 @@ module.exports = {
       template: './src/index.html'
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
+      filename: 'css/[name].[contenthash:6].css',
       chunkFilename: 'css/[name].[id].css',
     }),
 
