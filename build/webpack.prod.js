@@ -1,11 +1,13 @@
-const commonConfig = require('./webpack.common');
-const merge = require('webpack-merge');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const prodConfig = {
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+module.exports = {
   mode: 'production',
   // devtool: 'cheap-module-source-map',
   plugins: [
-    // new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash:6].css',
+      chunkFilename: 'css/[name].[id].css',
+    }),
   ]
 }
-module.exports = merge(commonConfig, prodConfig);

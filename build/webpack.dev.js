@@ -1,7 +1,4 @@
-const commonConfig = require('./webpack.common');
-const merge = require('webpack-merge');
-
-const devConfig = {
+module.exports = {
   mode: 'development',
   optimization: {
     usedExports: true,
@@ -11,6 +8,4 @@ const devConfig = {
     port: 3300,
     open: true,
   },
-};
-
-module.exports = merge(commonConfig, devConfig);
+} 

@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --config ./build/webpack.dev.js",
-    "build": "webpack --config ./build/webpack.prod.js"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.common.js",
+    "build": "cross-env NODE_ENV=production  webpack --config ./build/webpack.common.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "@babel/preset-env": "^7.7.6",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^6.0.3",
     "css-loader": "^3.2.1",
     "exports-loader": "^0.7.0",
     "html-webpack-plugin": "^3.2.0",
@@ -44,6 +45,7 @@
   "dependencies": {
     "core-js": "^3.4.8",
     "lodash": "^4.17.15",
+    "lodash-es": "^4.17.15",
     "regenerator-runtime": "^0.13.3"
   }
 }
