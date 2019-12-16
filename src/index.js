@@ -1,13 +1,25 @@
-import './index.css';
+// import './index.css';
+console.log('hello');
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js').then(registration => {
+      console.log('SW registered: ', registration);
+    }).catch(registrationError => {
+      console.log('SW registration failed: ', registrationError);
+    });
+  });
+}
+
 // import {join} from 'lodash-es';
 // import {say} from './test-shim-module';
 // say()
 
 // console.log(join(['lodash', 'es'], '-'))
 
-import another from './another-module';
-console.log('index...');
-another();
+// import another from './another-module';
+// console.log('index...');
+// another();
 
 // const dynamicImport = () => async () => {
 //   console.log('async importing');
@@ -16,11 +28,9 @@ another();
 //   }).catch(error => console.log('async import error'));
 // };
 
-
-
-document.addEventListener('click', () => {
-  // dynamicImport();
-  // import(/* webpackPrefetch: true *//* webpackChunkName: "prefetch-module" */ './prefetch-module').then(({ default: fn }) => {
-  //   fn();
-  // });
-})
+// document.addEventListener('click', () => {
+//   dynamicImport();
+//   import(/* webpackPrefetch: true *//* webpackChunkName: "prefetch-module" */ './prefetch-module').then(({ default: fn }) => {
+//     fn();
+//   });
+// })
