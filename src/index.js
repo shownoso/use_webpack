@@ -1,5 +1,5 @@
 // import './index.css';
-import './ts-module.ts'
+import './ts-module'
 console.log('hello');
 
 

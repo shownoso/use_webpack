@@ -71,6 +71,9 @@ module.exports = () => {
       //   __join: ['lodash', 'join'],
       // }),
     ],
+    resolve: {
+      extensions: ['.js', '.ts']
+    }
   };
 
   return devMode ? merge(commonConfig, devConfig) : merge(commonConfig, prodConfig)
