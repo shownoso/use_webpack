@@ -1,6 +1,7 @@
 // import './index.css';
-import './ts-module'
-console.log('hello');
+import _ from 'lodash';
+// import './ts-module'
+console.log(_.join(['hello', 'webpack'], '**'));
 
 
 
@@ -8,15 +9,16 @@ console.log('hello');
 
 
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js').then(registration => {
-      console.log('SW registered: ', registration);
-    }).catch(registrationError => {
-      console.log('SW registration failed: ', registrationError);
-    });
-  });
-}
+
+// if ('serviceWorker' in navigator) {
+//   window.addEventListener('load', () => {
+//     navigator.serviceWorker.register('/service-worker.js').then(registration => {
+//       console.log('SW registered: ', registration);
+//     }).catch(registrationError => {
+//       console.log('SW registration failed: ', registrationError);
+//     });
+//   });
+// }
 
 // import {join} from 'lodash-es';
 // import {say} from './test-shim-module';

@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.common.js",
     "build": "cross-env NODE_ENV=production  webpack --config ./build/webpack.common.js",
-    "start": "http-server dist"
+    "start": "http-server dist",
+    "dll": "webpack --config ./build/webpack.dll.js"
   },
   "repository": {
     "type": "git",

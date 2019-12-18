@@ -27,14 +27,14 @@ module.exports = () => {
     },
     module: {
       rules: [
-        {
-          test: require.resolve('../src/test-shim-module.js'),
-          use: 'imports-loader?this=>window',
-        },
-        {
-          test: require.resolve('../src/test-shim-module.js'),
-          use: 'exports-loader?say=window.say',
-        },
+        // {
+        //   test: require.resolve('../src/test-shim-module.js'),
+        //   use: 'imports-loader?this=>window',
+        // },
+        // {
+        //   test: require.resolve('../src/test-shim-module.js'),
+        //   use: 'exports-loader?say=window.say',
+        // },
         {
           test: /\.(t|j)s$/,
           exclude: /node_modules/,
@@ -66,13 +66,20 @@ module.exports = () => {
         title: 'webpack',
         template: './src/index.html'
       }),
+      new webpack.DllReferencePlugin({
+        manifest: path.resolve(__dirname, '../dll/vendors.manifest.json')
+      }),
+
       // new webpack.ProvidePlugin({
       //   // _: 'lodash',
       //   __join: ['lodash', 'join'],
       // }),
     ],
     resolve: {
-      extensions: ['.js', '.ts']
+      extensions: ['.ts','.js'],
+      // alias: {
+      //   '@': path.resolve(__dirname, '../src/')
+      // }
     }
   };
 
