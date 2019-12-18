@@ -36,7 +36,7 @@ module.exports = () => {
           use: 'exports-loader?say=window.say',
         },
         {
-          test: /\.js$/,
+          test: /\.(t|j)s$/,
           exclude: /node_modules/,
           use: ['babel-loader']
         },

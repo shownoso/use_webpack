@@ -1,5 +1,12 @@
 // import './index.css';
+import './ts-module.ts'
 console.log('hello');
+
+
+
+
+
+
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

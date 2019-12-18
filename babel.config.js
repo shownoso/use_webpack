@@ -7,6 +7,7 @@ const presets = [
 			// modules: false 
 		},
 	],
+	["@babel/preset-typescript"]
 ];
 
 module.exports = {
