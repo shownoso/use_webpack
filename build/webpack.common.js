@@ -7,6 +7,8 @@ const webpack = require('webpack');
 const devConfig = require('./webpack.dev');
 const prodConfig = require('./webpack.prod');
 
+const CustomPlugin = require('./plugins/customPlugin');
+
 module.exports = () => {
   const devMode = process.env.NODE_ENV === 'development';
   const commonConfig = {
@@ -25,6 +27,9 @@ module.exports = () => {
         // cacheGroups: {}
       },
     },
+    resolveLoader: {
+      modules: ['node_modules', path.resolve(__dirname, './loaders')]
+    },
     module: {
       rules: [
         // {
@@ -38,7 +43,15 @@ module.exports = () => {
         {
           test: /\.(t|j)s$/,
           exclude: /node_modules/,
-          use: ['babel-loader']
+          use: [
+            'babel-loader',
+            {
+              loader: 'customLoader',
+              options: {
+                name: 'webpack'
+              }
+            }
+          ]
         },
         {
           test: /\.css$/,
@@ -61,6 +74,7 @@ module.exports = () => {
       ]
     },
     plugins: [
+      new CustomPlugin(),
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         title: 'webpack',

@@ -1,10 +1,10 @@
 // import './index.css';
-import _ from 'lodash';
+// import _ from 'lodash';
 // import './ts-module'
-console.log(_.join(['hello', 'webpack'], '**'));
+// console.log(_.join(['hello', 'webpack'], '**'));
 
 
-
+console.log('hello world');
 
 
 
